@@ -10,10 +10,10 @@ Follow these steps to get the project running on your local machine:
 
 ```sh
 # Step 1: Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://github.com/IsukaW/isuka-wataliyadda-portfolio.git
 
 # Step 2: Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
+cd isuka-wataliyadda-portfolio
 
 # Step 3: Install the necessary dependencies
 npm i
