@@ -62,21 +62,21 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
-          : "bg-transparent"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border/50"
+          : "bg-background/80 backdrop-blur-sm md:bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 min-w-0 flex-1 sm:flex-initial">
             <a
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("#home");
               }}
-              className="text-xl md:text-2xl font-bold text-gradient cursor-pointer hover-lift"
+              className="text-lg sm:text-xl md:text-2xl font-bold text-gradient cursor-pointer hover-lift block truncate"
             >
               <span className="hidden sm:inline">Isuka Wataliyadda Portfolio</span>
               <span className="sm:hidden">Isuka W.</span>
@@ -84,8 +84,8 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            <div className="flex items-baseline space-x-6">
+          <div className="hidden lg:flex lg:items-center lg:space-x-8">
+            <div className="flex items-baseline space-x-4 xl:space-x-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -94,7 +94,7 @@ const Navbar = () => {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer hover-lift ${
+                  className={`px-3 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer hover-lift whitespace-nowrap ${
                     activeSection === item.href.substring(1)
                       ? "bg-primary/20 text-primary border border-primary/30"
                       : "text-foreground/80 hover:text-primary hover:bg-primary/10"
@@ -108,18 +108,18 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden flex-shrink-0 ml-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-full text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover-lift touch-manipulation"
+              className="inline-flex items-center justify-center p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20 transition-all duration-300 hover-lift touch-manipulation min-w-[44px] min-h-[44px]"
               aria-expanded={isMobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
+                <X className="block h-5 w-5" aria-hidden="true" />
               ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
+                <Menu className="block h-5 w-5" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -127,13 +127,13 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`md:hidden transition-all duration-300 ease-in-out ${
+          className={`lg:hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen
-              ? "max-h-[500px] opacity-100"
-              : "max-h-0 opacity-0 overflow-hidden"
+              ? "max-h-[400px] opacity-100 visible"
+              : "max-h-0 opacity-0 invisible overflow-hidden"
           }`}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-xl rounded-2xl mt-2 border border-border/50 shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-xl rounded-2xl mt-2 border border-border/50 shadow-xl">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -142,7 +142,7 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 cursor-pointer touch-manipulation ${
+                className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 cursor-pointer touch-manipulation min-h-[48px] flex items-center ${
                   activeSection === item.href.substring(1)
                     ? "bg-primary/20 text-primary border border-primary/30"
                     : "text-foreground/80 hover:text-primary hover:bg-primary/10 active:bg-primary/5"
@@ -151,8 +151,6 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            
-
           </div>
         </div>
       </div>

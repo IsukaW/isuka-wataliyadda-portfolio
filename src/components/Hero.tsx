@@ -26,7 +26,7 @@ const Hero = () => {
   }, [displayedText, fullName]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -42,28 +42,27 @@ const Hero = () => {
       <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
-            
-            {/* Left Column - Text Content */}
-            <div className="space-y-6 lg:space-y-8 animate-fade-in lg:order-1 text-center lg:text-left">
-              <div className="space-y-4">
-                <div className="inline-block px-3 sm:px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-4">
-                  <span className="text-primary font-medium text-sm sm:text-base">Welcome to my portfolio</span>
-                </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  <span className="block">Hi, I'm</span>
-                  <span className="text-gradient-animated inline-block">
-                    {displayedText}
-                    {isTyping && (
-                      <span className="inline-block w-0.5 sm:w-1 h-8 sm:h-10 md:h-12 lg:h-16 xl:h-20 ml-1 bg-primary rounded-sm animate-blink"></span>
-                    )}
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground">
-                  Full Stack Developer & DevOps Engineer
-                </p>
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)]">
+          
+          {/* Left Column - Text Content */}
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in lg:order-1 text-center lg:text-left pt-4 sm:pt-0">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-primary/25 border-2 border-primary/50 rounded-full mb-2 sm:mb-4 backdrop-blur-xl shadow-lg glass">
+                <span className="text-primary font-bold text-xs sm:text-sm md:text-base">Welcome to my portfolio</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                <span className="block mb-1 sm:mb-2">Hi, I'm</span>
+                <span className="text-gradient-animated inline-block">
+                  {displayedText}
+                  {isTyping && (
+                    <span className="inline-block w-0.5 sm:w-1 h-6 sm:h-8 md:h-10 lg:h-12 xl:h-16 ml-1 bg-primary rounded-sm animate-blink"></span>
+                  )}
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mt-2 sm:mt-4">
+                Full Stack Developer & DevOps Engineer
+              </p>
               </div>
 
               <p className="text-base sm:text-lg text-foreground/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -113,14 +112,14 @@ const Hero = () => {
             </div>
 
             {/* Right Column - Photo */}
-            <div className="lg:order-2 flex justify-center lg:justify-end mt-8 lg:mt-0">
-              <div className="relative group">
+            <div className="lg:order-2 flex justify-center lg:justify-end mt-6 sm:mt-8 lg:mt-0">
+              <div className="relative group max-w-sm lg:max-w-none">
                 {/* Decorative elements */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-blue-600/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="absolute -inset-2 bg-gradient-to-r from-primary/50 to-blue-600/50 rounded-2xl opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
+                <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-primary/30 to-blue-600/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-primary/50 to-blue-600/50 rounded-2xl opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
                 
                 {/* Photo container */}
-                <div className="relative w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[400px] lg:w-96 lg:h-[450px] rounded-2xl overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500 hover-lift">
+                <div className="relative w-56 h-72 sm:w-64 sm:h-80 md:w-72 md:h-[360px] lg:w-80 lg:h-[400px] xl:w-96 xl:h-[450px] rounded-2xl overflow-hidden border-3 sm:border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500 hover-lift mx-auto">
                   {/* Your Professional Photo */}
                   <img 
                     src={profilePhoto} 
@@ -133,21 +132,20 @@ const Hero = () => {
                 </div>
 
                 {/* Floating badges */}
-                <div className="absolute -bottom-4 -left-2 sm:-left-4 bg-background/90 backdrop-blur-sm border border-border rounded-xl p-2 sm:p-3 hover-lift">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs sm:text-sm font-medium">Available for work</span>
+                <div className="absolute -bottom-3 -left-1 sm:-bottom-4 sm:-left-2 md:-left-4 bg-background/95 backdrop-blur-xl border border-border rounded-lg sm:rounded-xl p-1.5 sm:p-2 md:p-3 hover-lift shadow-lg">
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-[10px] sm:text-xs md:text-sm font-medium whitespace-nowrap">Available for work</span>
                   </div>
                 </div>
                 
-                <div className="absolute -top-4 -right-2 sm:-right-4 bg-background/90 backdrop-blur-sm border border-border rounded-xl p-2 sm:p-3 hover-lift">
+                <div className="absolute -top-3 -right-1 sm:-top-4 sm:-right-2 md:-right-4 bg-background/95 backdrop-blur-xl border border-border rounded-lg sm:rounded-xl p-1.5 sm:p-2 md:p-3 hover-lift shadow-lg">
                   <div className="text-center">
-                    <div className="text-base sm:text-lg font-bold text-primary">3+</div>
-                    <div className="text-xs text-muted-foreground">Years Exp</div>
+                    <div className="text-sm sm:text-base md:text-lg font-bold text-primary">3+</div>
+                    <div className="text-[8px] sm:text-[10px] md:text-xs text-muted-foreground whitespace-nowrap">Years Exp</div>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 
